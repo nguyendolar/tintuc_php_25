@@ -28,9 +28,9 @@ $row = mysqli_fetch_array($queryloai);
             </div>
             <div class="row">
                         <?php 
-                            $tintuc = "SELECT a.*, b.ten 
-                            FROM tintuc as a, chude as b
-                            WHERE a.chude_id = b.id
+                            $tintuc = "SELECT a.*, b.ten ,c.hoten
+                            FROM tintuc as a, chude as b, nguoidung c
+                            WHERE a.chude_id = b.id and a.nguoidung_id = c.id
                             AND a.chude_id = '".$id."'
                             ORDER BY a.id DESC";
                             $resultbd = mysqli_query($connect, $tintuc);
@@ -47,9 +47,12 @@ $row = mysqli_fetch_array($queryloai);
                                     <a href="chitiet.php?id=<?php echo $bd['id'] ?>" class="post-title">
                                         <h6><?php echo $bd['tieude'] ?></h6>
                                     </a>
-                                    <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-comment"><img style="margin-left : -20px !important" src="img/core-img/chat.png" alt=""> <span><?php echo $bd['ngay'] ?></span></a>
-                                    </div>
+                                    <div class="post-meta align-items-center" style="margin-top: -20px; margin-bottom : 10px">
+                                            <a href="hoso.php?id=<?php echo $bd['nguoidung_id'] ?>" class="post-comment"><img style="margin-left : -20px !important;width : 17px" src="https://cdn-icons-png.flaticon.com/512/3276/3276535.png" alt=""> <span><?php echo $bd['hoten'] ?></span></a>
+                                        </div>
+                                        <div class="post-meta align-items-center">
+                                            <a href="#" class="post-comment"><img style="margin-left : -20px !important;width : 17px" src="https://thumbs.dreamstime.com/b/calendar-icon-line-style-design-simple-vector-perfect-illustration-calendar-icon-line-style-design-simple-symbol-perfect-vector-352068874.jpg" alt=""> <span><?php echo $bd['ngay'] ?></span></a>
+                                        </div>
                                 </div>
                             </div>
                         </div>

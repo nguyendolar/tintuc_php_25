@@ -167,7 +167,7 @@ $row = mysqli_fetch_array($query);
                         $tintuc = "SELECT a.*, b.ten 
                         FROM tintuc as a, chude as b
                         WHERE a.chude_id = b.id
-                        AND a.id != '".$id."' ORDER BY a.id DESC ";
+                        AND a.id != '".$id."' ORDER BY a.id DESC LIMIT 5";
                         $resultbd = mysqli_query($connect, $tintuc);
                         while ($bd = mysqli_fetch_array($resultbd, MYSQLI_ASSOC)) {
                         ?>

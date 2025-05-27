@@ -164,6 +164,8 @@ if(isset($_POST['deletend'])){
     $id  = $_POST['id'];
     $queryxoa = "DELETE FROM binhluan WHERE `nguoidung_id`='{$id}'";
     $resultxoa = mysqli_query($connect, $queryxoa);
+    $queryxoa1 = "DELETE FROM tintuc WHERE `nguoidung_id`='{$id}'";
+    $resultxoa1 = mysqli_query($connect, $queryxoa1);
     $query = "DELETE FROM nguoidung WHERE `id`='{$id}'";
     $result = mysqli_query($connect, $query);
     header("Location: nguoidung.php?msg=1");
